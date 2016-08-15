@@ -1,0 +1,65 @@
+<% include include/header %>
+<script src="/javascripts/jquery-1.12.4.min.js"></script>
+
+<form role="form" method="post">
+    <input type="hidden" name="bno" value="<%= row.bno %>"/>
+</form>
+
+<div class="container">
+<div class="heading-contact marginbot-50">
+</div>
+<br><br><br><br>
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+            <table width="70%" border="1" align="center" class="table-condensed">
+                <tr>
+                    <th>작성자</th>
+                    <td><%= row.writer %></td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td><%= row.title %></td>
+                </tr>
+                <tr style="height: 17em">
+                    <th>내용</th>
+                    <td><%= row.content %></td>
+                </tr>
+                <tr>
+                    <th>날짜</th>
+                    <td><%= row.date %></td>
+                </tr>
+                <tr>
+                    <th>조회수</th>
+                    <td><%= row.hit %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<br>
+    <div class="col-md-12" align="right">
+        <button type="submit" class="btn btn-skin scroll" id="modBtn">수정</button>
+        <button type="submit" class="btn btn-skin scroll" id="delBtn">삭제</button>
+        <a href="/board"><button type="button" class="btn btn-skin scroll">목록</button></a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var formObj = $("form[role='form']");
+        console.log(formObj);
+
+        $("#modBtn").on("click", function () {
+            formObj.attr("action", "/board/update");
+            formObj.attr("method", "get")
+            formObj.submit();
+        });
+        $("#delBtn").on("click", function () {
+            formObj.attr("action", "/board/delete");
+            formObj.attr("method", "post");
+            alert("글이 삭제되었습니다~~!");
+            formObj.submit();
+        });
+    });
+</script>
+
+<% include include/footer %>

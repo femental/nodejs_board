@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="346d88fb-ee09-426e-9e47-a02dec0e92c2" name="test" url="http://52.34.51.94">
+        <fileTransfer host="52.34.51.94" port="22" privateKey="D:\aws key\aws.grammium.linux1.ppk" accessType="SFTP" username="ec2-user" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,60 @@
+<% include include/header %>
+
+<br><br><br><br>
+<div class="container">
+<form action="/board/write" method="post" onsubmit="return onWriteSubmit()">
+    <br><br><br><br>
+    <table width="70%" border="1" align="center" class="table-condensed">
+        <tr>
+            <th>작성자</th>
+            <td><input type="text" name="writer" id="writer" required style="width: 100%"/></td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td><input type="text" name="title" id="title" required style="width: 100%"/></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><textarea name="content" id="content" cols="30" rows="10" required style="width: 100%"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <button type="submit" class="btn btn-skin scroll" onclick="alert('글이 작성되었습니다.')">글쓰기</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function onWriteSubmit()
+    {
+        if ( $("#writer").val().trim() == "" )
+        {
+            var message = "아이디를 입력해 주세요";
+            $("#writer").val("");
+            $("#writer").focus();
+            alert(message);
+            return false;
+        }
+
+        if ( $("#title").val().trim() == "" )
+        {
+            var message = "제목을 입력해 주세요";
+            $("#title").val("");
+            $("#title").focus();
+            alert(message);
+            return false;
+        }
+
+        if ( $("#content").val().trim() == "" )
+        {
+            var message = "본문 내용을 입력해 주세요";
+            $("#content").val("");
+            $("#content").focus();
+            alert(message);
+            return false;
+        }
+    }
+</script>
+</div>
+<% include include/footer %>
